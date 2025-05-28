@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrassyVibesAtHome - Premium Gardening Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(34, 139, 34, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '🌿';
+            font-size: 2rem;
+            animation: sway 2s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #90EE90;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #90EE90;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(34, 139, 34, 0.7), rgba(107, 142, 35, 0.7)), 
+                        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInLeft 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: slideInRight 1s ease-out 0.6s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            color: #2F4F2F;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.5);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2F4F2F;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: #2F4F2F;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #228B22, #32CD32);
+            color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: linear-gradient(45deg, rgba(144, 238, 144, 0.3), rgba(50, 205, 50, 0.3)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            color: #2F4F2F;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .contact-item span {
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2F4F2F;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #32CD32;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #2F4F2F;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating elements */
+        .floating-leaves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .leaf {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .leaf:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .leaf:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .leaf:nth-child(3) { left: 80%; animation-delay: 2s; }
+        .leaf:nth-child(4) { left: 90%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-leaves">
+        <div class="leaf">🍃</div>
+        <div class="leaf">🌿</div>
+        <div class="leaf">🍃</div>
+        <div class="leaf">🌿</div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">GrassyVibesAtHome</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Garden Into Paradise</h1>
+            <p>Professional gardening maintenance services that bring nature's beauty to your doorstep. Experience the perfect blend of expertise and passion.</p>
+            <a href="#contact" class="cta-button">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); height: 200px; background-size: cover; background-position: center; margin: -2rem -2rem 1rem -2rem; border-radius: 20px 20px 0 0;"></div>
+                    <span class="service-icon">🌱</span>
+                    <h3>Garden Design & Planning</h3>
+                    <p>Transform your outdoor space with our creative design solutions. We create stunning landscapes tailored to your style and environment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1UR1iuyDPrdDykAHpbc26HE1IoBqooyHO0w&s'); height: 200px; background-size: cover; background-position: center; margin: -2rem -2rem 1rem -2rem; border-radius: 20px 20px 0 0;"></div>
+                    <span class="service-icon">✂️</span>
+                    <h3>Lawn Care & Maintenance</h3>
+                    <p>Keep your lawn pristine year-round with our comprehensive care services including mowing, edging, and seasonal treatments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); height: 200px; background-size: cover; background-position: center; margin: -2rem -2rem 1rem -2rem; border-radius: 20px 20px 0 0;"></div>
+                    <span class="service-icon">🌺</span>
+                    <h3>Flower Bed Creation</h3>
+                    <p>Add vibrant colors to your garden with expertly designed flower beds that bloom beautifully throughout the seasons.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtTrbnDIwJ5IJ1n0DoaX9IFs87k_wdKkXNpQ&s'); height: 200px; background-size: cover; background-position: center; margin: -2rem -2rem 1rem -2rem; border-radius: 20px 20px 0 0;"></div>
+                    <span class="service-icon">🌳</span>
+                    <h3>Tree & Shrub Care</h3>
+                    <p>Professional pruning, trimming, and health assessments to keep your trees and shrubs thriving and beautiful.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); height: 200px; background-size: cover; background-position: center; margin: -2rem -2rem 1rem -2rem; border-radius: 20px 20px 0 0;"></div>
+                    <span class="service-icon">💧</span>
+                    <h3>Irrigation Systems</h3>
+                    <p>Efficient watering solutions that ensure your garden stays healthy while conserving water and saving you time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXmgZ9k0CDuyEGEbkq2bgHtY7e8fH2T349Cg&s'); height: 200px; background-size: cover; background-position: center; margin: -2rem -2rem 1rem -2rem; border-radius: 20px 20px 0 0;"></div>
+                    <span class="service-icon">🏡</span>
+                    <h3>Seasonal Cleanup</h3>
+                    <p>Comprehensive seasonal maintenance to prepare your garden for changing weather and keep it looking its best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose GrassyVibesAtHome?</h2>
+                    <p>With over a decade of experience in garden maintenance and landscape design, we bring passion and expertise to every project. Our team of certified professionals understands the unique needs of your local climate and soil conditions.</p>
+                    <p>We believe that every garden has the potential to be extraordinary. From small urban spaces to expansive estates, we create outdoor environments that reflect your personality and enhance your lifestyle.</p>
+                    <p>Our commitment to sustainability means we use eco-friendly practices and native plants whenever possible, creating beautiful spaces that support local wildlife and conserve resources.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Beautiful garden maintenance image -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" style="padding: 5rem 2rem; background: linear-gradient(135deg, #f0f8f0, #e8f5e8);">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
+                    <div style="color: #32CD32; font-size: 3rem; margin-bottom: 1rem;">"</div>
+                    <p style="font-style: italic; margin-bottom: 1.5rem; color: #555;">"GrassyVibesAtHome transformed our backyard into an absolute paradise! Their attention to detail and creative vision exceeded all our expectations. Our neighbors constantly ask who did our landscaping."</p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #32CD32, #90EE90); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SM</div>
+                        <div>
+                            <strong style="color: #2F4F2F;">Sarah Mitchell</strong><br>
+                            <small style="color: #666;">Homeowner, Austin TX</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
+                    <div style="color: #32CD32; font-size: 3rem; margin-bottom: 1rem;">"</div>
+                    <p style="font-style: italic; margin-bottom: 1.5rem; color: #555;">"Professional, reliable, and incredibly skilled. They've been maintaining our commercial property for two years now, and it always looks immaculate. Best landscaping service in the area!"</p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #32CD32, #90EE90); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">MJ</div>
+                        <div>
+                            <strong style="color: #2F4F2F;">Mike Johnson</strong><br>
+                            <small style="color: #666;">Property Manager, Dallas TX</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
+                    <div style="color: #32CD32; font-size: 3rem; margin-bottom: 1rem;">"</div>
+                    <p style="font-style: italic; margin-bottom: 1.5rem; color: #555;">"From design to installation to ongoing maintenance, GrassyVibesAtHome has been exceptional. They created a drought-resistant garden that's both beautiful and environmentally conscious."</p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #32CD32, #90EE90); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">LR</div>
+                        <div>
+                            <strong style="color: #2F4F2F;">Lisa Rodriguez</strong><br>
+                            <small style="color: #666;">Homeowner, Houston TX</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" style="padding: 5rem 2rem; background: white;">
+        <div class="container">
+            <h2 class="section-title">Our Simple 4-Step Process</h2>
+            <div class="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #32CD32, #90EE90); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; font-weight: bold;">1</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 1rem;">Consultation</h3>
+                    <p style="color: #666;">We visit your property for a free consultation, discussing your vision, needs, and budget to create the perfect plan.</p>
+                </div>
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #32CD32, #90EE90); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; font-weight: bold;">2</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 1rem;">Design</h3>
+                    <p style="color: #666;">Our experts create a detailed design proposal with 3D renderings, plant selections, and timeline for your approval.</p>
+                </div>
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #32CD32, #90EE90); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; font-weight: bold;">3</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 1rem;">Installation</h3>
+                    <p style="color: #666;">Our skilled team brings your garden to life with professional installation, using quality materials and plants.</p>
+                </div>
+                <div class="process-step" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #32CD32, #90EE90); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; font-weight: bold;">4</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 1rem;">Maintenance</h3>
+                    <p style="color: #666;">Ongoing care and maintenance services ensure your garden continues to thrive and look beautiful year-round.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="additional-services" style="padding: 5rem 2rem; background: linear-gradient(135deg, #228B22, #32CD32); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Specialized Services</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                <div class="specialty-service" style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+                    <h3 style="margin-bottom: 1rem;">Commercial Landscaping</h3>
+                    <p style="opacity: 0.9;">Transform your business exterior with professional commercial landscaping that creates lasting impressions on clients and customers.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1rem;">
+                        <li>Office complexes and corporate campuses</li>
+                        <li>Retail centers and shopping malls</li>
+                        <li>Hotels and hospitality venues</li>
+                        <li>Healthcare facilities</li>
+                    </ul>
+                </div>
+                <div class="specialty-service" style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌿</div>
+                    <h3 style="margin-bottom: 1rem;">Eco-Friendly Solutions</h3>
+                    <p style="opacity: 0.9;">Sustainable gardening practices that protect the environment while creating beautiful, low-maintenance landscapes.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1rem;">
+                        <li>Native plant installations</li>
+                        <li>Water-wise garden designs</li>
+                        <li>Organic pest control methods</li>
+                        <li>Composting and soil health programs</li>
+                    </ul>
+                </div>
+                <div class="specialty-service" style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+                    <h3 style="margin-bottom: 1rem;">Landscape Lighting</h3>
+                    <p style="opacity: 0.9;">Illuminate your outdoor spaces with professional landscape lighting that enhances beauty and provides security.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1rem;">
+                        <li>LED pathway and garden lighting</li>
+                        <li>Architectural accent lighting</li>
+                        <li>Security and safety lighting</li>
+                        <li>Smart lighting control systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section class="service-areas" style="padding: 5rem 2rem; background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Service Areas Across Texas</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: center;">
+                <div class="area-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏙️</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 0.5rem;">Austin</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Greater Austin Metropolitan Area</p>
+                </div>
+                <div class="area-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌆</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 0.5rem;">Dallas</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Dallas-Fort Worth Metroplex</p>
+                </div>
+                <div class="area-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏢</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 0.5rem;">Houston</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Greater Houston Area</p>
+                </div>
+                <div class="area-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌵</div>
+                    <h3 style="color: #2F4F2F; margin-bottom: 0.5rem;">San Antonio</h3>
+                    <p style="color: #666; font-size: 0.9rem;">San Antonio Metropolitan Area</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="color: #666; font-size: 1.1rem;">Don't see your area listed? <a href="#contact" style="color: #32CD32; text-decoration: none; font-weight: bold;">Contact us</a> to discuss service availability in your location.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" style="padding: 5rem 2rem; background: white;">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 3rem auto 0;">
+                <div class="faq-item" style="margin-bottom: 2rem; border: 1px solid #e9ecef; border-radius: 10px; overflow: hidden;">
+                    <div class="faq-question" style="background: #f8f9fa; padding: 1.5rem; cursor: pointer; font-weight: bold; color: #2F4F2F;">
+                        How often should I schedule lawn maintenance?
+                    </div>
+                    <div class="faq-answer" style="padding: 1.5rem; color: #666; border-top: 1px solid #e9ecef;">
+                        We recommend weekly maintenance during growing season (spring and summer) and bi-weekly during slower growth periods. Our team will create a customized schedule based on your lawn's specific needs and grass type.
+                    </div>
+                </div>
+                <div class="faq-item" style="margin-bottom: 2rem; border: 1px solid #e9ecef; border-radius: 10px; overflow: hidden;">
+                    <div class="faq-question" style="background: #f8f9fa; padding: 1.5rem; cursor: pointer; font-weight: bold; color: #2F4F2F;">
+                        Do you provide free estimates?
+                    </div>
+                    <div class="faq-answer" style="padding: 1.5rem; color: #666; border-top: 1px solid #e9ecef;">
+                        Yes! We offer complimentary consultations and estimates for all our services. Our team will visit your property, assess your needs, and provide a detailed quote with no obligation.
+                    </div>
+                </div>
+                <div class="faq-item" style="margin-bottom: 2rem; border: 1px solid #e9ecef; border-radius: 10px; overflow: hidden;">
+                    <div class="faq-question" style="background: #f8f9fa; padding: 1.5rem; cursor: pointer; font-weight: bold; color: #2F4F2F;">
+                        What makes your service eco-friendly?
+                    </div>
+                    <div class="faq-answer" style="padding: 1.5rem; color: #666; border-top: 1px solid #e9ecef;">
+                        We prioritize native Texas plants, water-efficient irrigation systems, organic fertilizers, and integrated pest management. Our sustainable practices reduce environmental impact while maintaining beautiful landscapes.
+                    </div>
+                </div>
+                <div class="faq-item" style="margin-bottom: 2rem; border: 1px solid #e9ecef; border-radius: 10px; overflow: hidden;">
+                    <div class="faq-question" style="background: #f8f9fa; padding: 1.5rem; cursor: pointer; font-weight: bold; color: #2F4F2F;">
+                        Are you licensed and insured?
+                    </div>
+                    <div class="faq-answer" style="padding: 1.5rem; color: #666; border-top: 1px solid #e9ecef;">
+                        Absolutely! GrassyVibesAtHome is fully licensed, bonded, and insured. We carry comprehensive liability insurance and workers' compensation for your peace of mind.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            (512) 555-GROW
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@grassyvibesathome.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Address:</strong><br>
+                            2347 Garden Valley Drive<br>
+                            Austin, TX 78745
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>🕒</span>
+                        <div>
+                            <strong>Hours:</strong><br>
+                            Mon-Sat: 7AM - 6PM<br>
+                            Sunday: 9AM - 4PM
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Lawn maintenance, Garden design">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: left;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="color: #90EE90; margin-bottom: 1rem; font-size: 1.3rem;">GrassyVibesAtHome</h3>
+                    <p style="color: #ccc; line-height: 1.6; margin-bottom: 1rem;">Transform your outdoor space with Texas's premier gardening and landscaping service. Professional, reliable, and passionate about creating beautiful gardens.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <span style="background: #90EE90; color: #2F4F2F; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">📘</span>
+                        <span style="background: #90EE90; color: #2F4F2F; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">📷</span>
+                        <span style="background: #90EE90; color: #2F4F2F; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">🐦</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #90EE90; margin-bottom: 1rem;">Our Services</h4>
+                    <ul style="list-style: none; color: #ccc; line-height: 2;">
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Garden Design & Planning</a></li>
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Lawn Care & Maintenance</a></li>
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Flower Bed Creation</a></li>
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Tree & Shrub Care</a></li>
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Commercial Landscaping</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #90EE90; margin-bottom: 1rem;">Contact Info</h4>
+                    <div style="color: #ccc; line-height: 1.8;">
+                        <p style="margin-bottom: 0.5rem;"><strong>📍 Address:</strong><br>2347 Garden Valley Drive<br>Austin, TX 78745</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>📞 Phone:</strong> (512) 555-GROW</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>✉️ Email:</strong> info@grassyvibesathome.com</p>
+                        <p><strong>🕒 Hours:</strong> Mon-Sat: 7AM-6PM | Sun: 9AM-4PM</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #90EE90; margin-bottom: 1rem;">Service Areas</h4>
+                    <ul style="list-style: none; color: #ccc; line-height: 2;">
+                        <li>Austin Metropolitan Area</li>
+                        <li>Dallas-Fort Worth</li>
+                        <li>Greater Houston</li>
+                        <li>San Antonio Region</li>
+                        <li>Cedar Park & Round Rock</li>
+                        <li>Pflugerville & Georgetown</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #555; padding-top: 2rem; text-align: center;">
+                <p>&copy; 2025 GrassyVibesAtHome. All rights reserved. | Licensed, Bonded & Insured | Bringing nature's beauty to Texas homes and businesses.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(34, 139, 34, 0.98)';
+            } else {
+                header.style.background = 'rgba(34, 139, 34, 0.95)';
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = 'Message Sent! ✓';
+                submitBtn.style.background = 'linear-gradient(45deg, #32CD32, #90EE90)';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = 'linear-gradient(45deg, #228B22, #32CD32)';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .section-title').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

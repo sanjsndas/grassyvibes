@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - GrassyVibesAtHome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(34, 139, 34, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '🌿';
+            font-size: 2rem;
+            animation: sway 2s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #90EE90;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #90EE90;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #32CD32;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: #2F4F2F;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            color: #2F4F2F;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .terms-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-left: 4px solid #32CD32;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 10px;
+        }
+
+        .terms-section h2 {
+            color: #2F4F2F;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .terms-section h3 {
+            color: #228B22;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        .terms-section p {
+            color: #555;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .terms-section ul {
+            color: #555;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(144, 238, 144, 0.1), rgba(50, 205, 50, 0.1));
+            border: 2px solid #90EE90;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+            border: 2px solid #FFC107;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #228B22, #32CD32);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .contact-info a {
+            color: #90EE90;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: linear-gradient(135deg, #f0f8f0, #e8f5e8);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc h3 {
+            color: #2F4F2F;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: #228B22;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .toc a:hover {
+            background: #32CD32;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2F4F2F;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #90EE90;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .main-content {
+                margin-top: 80px;
+                padding: 2rem 1rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .terms-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Floating elements */
+        .floating-leaves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .leaf {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.05;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .leaf:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .leaf:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .leaf:nth-child(3) { left: 70%; animation-delay: 4s; }
+        .leaf:nth-child(4) { left: 90%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-leaves">
+        <div class="leaf">🍃</div>
+        <div class="leaf">🌿</div>
+        <div class="leaf">🍃</div>
+        <div class="leaf">🌿</div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">GrassyVibesAtHome</a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Terms of Service</h1>
+            <p class="page-subtitle">Please read these terms carefully before using our gardening and landscaping services.</p>
+            <span class="last-updated">Last Updated: May 28, 2025</span>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Table of Contents</h3>
+            <ul>
+                <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+                <li><a href="#services">2. Services Description</a></li>
+                <li><a href="#booking">3. Booking and Scheduling</a></li>
+                <li><a href="#payment">4. Payment Terms</a></li>
+                <li><a href="#cancellation">5. Cancellation Policy</a></li>
+                <li><a href="#property-access">6. Property Access</a></li>
+                <li><a href="#liability">7. Liability and Insurance</a></li>
+                <li><a href="#warranties">8. Warranties and Guarantees</a></li>
+                <li><a href="#customer-responsibilities">9. Customer Responsibilities</a></li>
+                <li><a href="#weather">10. Weather and Force Majeure</a></li>
+                <li><a href="#disputes">11. Dispute Resolution</a></li>
+                <li><a href="#termination">12. Termination</a></li>
+                <li><a href="#governing-law">13. Governing Law</a></li>
+                <li><a href="#contact-terms">14. Contact Information</a></li>
+            </ul>
+        </div>
+
+        <section id="acceptance" class="terms-section">
+            <h2>✅ 1. Acceptance of Terms</h2>
+            
+            <p>By engaging GrassyVibesAtHome for gardening, landscaping, or related services, you ("Customer" or "you") agree to be bound by these Terms of Service ("Terms"). These Terms constitute a legally binding agreement between you and GrassyVibesAtHome ("Company," "we," "us," or "our").</p>
+
+            <h3>Agreement Formation</h3>
+            <p>Your agreement to these Terms occurs when you:</p>
+            <ul>
+                <li>Schedule services through our website, phone, or email</li>
+                <li>Sign a service agreement or estimate</li>
+                <li>Allow us to begin work on your property</li>
+                <li>Make payment for services rendered</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Important:</strong> If you do not agree with these Terms, please do not use our services. By continuing to use our services, you acknowledge that you have read, understood, and agree to be bound by these Terms.
+            </div>
+        </section>
+
+        <section id="services" class="terms-section">
+            <h2>🌱 2. Services Description</h2>
+            
+            <p>GrassyVibesAtHome provides professional gardening and landscaping services throughout the Austin, Texas area, including but not limited to:</p>
+
+            <h3>Core Services</h3>
+            <ul>
+                <li><strong>Lawn Care:</strong> Mowing, edging, fertilization, weed control, aeration</li>
+                <li><strong>Garden Maintenance:</strong> Pruning, planting, mulching, seasonal cleanup</li>
+                <li><strong>Landscaping:</strong> Design, installation, hardscaping, irrigation systems</li>
+                <li><strong>Tree Services:</strong> Trimming, removal, stump grinding (certified arborists)</li>
+                <li><strong>Seasonal Services:</strong> Spring cleanup, fall leaf removal, holiday decorating</li>
+            </ul>
+
+            <h3>Service Standards</h3>
+            <p>We commit to providing services that meet industry standards and local regulations. All work is performed by trained professionals using appropriate tools and techniques for Texas climate conditions.</p>
+
+            <h3>Custom Projects</h3>
+            <p>Large landscaping projects require separate written agreements detailing scope, timeline, materials, and costs. These projects may have additional terms specific to the work being performed.</p>
+        </section>
+
+        <section id="booking" class="terms-section">
+            <h2>📅 3. Booking and Scheduling</h2>
+            
+            <h3>Service Requests</h3>
+            <p>Services may be requested through:</p>
+            <ul>
+                <li>Our website contact form</li>
+                <li>Phone calls to (512) 555-GROW</li>
+                <li>Email to info@grassyvibesathome.com</li>
+                <li>In-person consultations</li>
+            </ul>
+
+            <h3>Estimates and Quotes</h3>
+            <ul>
+                <li>Free estimates are provided for most services</li>
+                <li>Quotes are valid for 30 days unless otherwise specified</li>
+                <li>Complex projects may require a consultation fee</li>
+                <li>Final pricing may vary based on actual conditions encountered</li>
+            </ul>
+
+            <h3>Scheduling Policies</h3>
+            <ul>
+                <li>Services are scheduled based on availability and weather conditions</li>
+                <li>We provide 24-48 hour advance notice for scheduled visits</li>
+                <li>Emergency services are available at premium rates</li>
+                <li>Recurring services follow predetermined schedules with seasonal adjustments</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Weather Dependencies:</strong> Outdoor services are subject to weather conditions. We reserve the right to reschedule services for safety reasons or to protect your property.
+            </div>
+        </section>
+
+        <section id="payment" class="terms-section">
+            <h2>💳 4. Payment Terms</h2>
+            
+            <h3>Payment Methods</h3>
+            <p>We accept the following payment methods:</p>
+            <ul>
+                <li>Credit and debit cards (Visa, MasterCard, American Express)</li>
+                <li>ACH bank transfers</li>
+                <li>Cash payments (for services under $500)</li>
+                <li>Business checks (with approved credit application)</li>
+            </ul>
+
+            <h3>Payment Schedules</h3>
+            <ul>
+                <li><strong>One-time Services:</strong> Payment due upon completion</li>
+                <li><strong>Recurring Services:</strong> Monthly billing with NET 15 terms</li>
+                <li><strong>Large Projects:</strong> 50% deposit, progress payments, final payment upon completion</li>
+                <li><strong>Materials:</strong> Payment required before ordering specialty items</li>
+            </ul>
+
+            <h3>Late Payment Policy</h3>
+            <ul>
+                <li>Late fees of 1.5% per month on overdue balances</li>
+                <li>Services may be suspended for accounts 30+ days past due</li>
+                <li>Collection costs and legal fees may be added to delinquent accounts</li>
+                <li>Credit card on file may be charged for overdue amounts</li>
+            </ul>
+
+            <h3>Pricing and Changes</h3>
+            <p>Service pricing is based on current rates and may be adjusted annually or with 30 days' notice. Fuel surcharges may apply during periods of high gas prices.</p>
+        </section>
+
+        <section id="cancellation" class="terms-section">
+            <h2>❌ 5. Cancellation Policy</h2>
+            
+            <h3>Customer Cancellations</h3>
+            <ul>
+                <li><strong>24+ Hours Notice:</strong> No cancellation fee</li>
+                <li><strong>Less than 24 Hours:</strong> 50% of service cost</li>
+                <li><strong>Same Day/No Show:</strong> Full service charge</li>
+                <li><strong>Recurring Services:</strong> 30 days written notice required</li>
+            </ul>
+
+            <h3>Company Cancellations</h3>
+            <p>We may cancel or reschedule services due to:</p>
+            <ul>
+                <li>Severe weather conditions</li>
+                <li>Equipment malfunctions</li>
+                <li>Staff illness or emergencies</li>
+                <li>Property access issues</li>
+                <li>Safety concerns</li>
+            </ul>
+
+            <h3>Project Cancellations</h3>
+            <p>For large landscaping projects:</p>
+            <ul>
+                <li>Materials ordered cannot be returned (customer responsibility)</li>
+                <li>Completed work must be paid in full</li>
+                <li>Cancellation fees may apply based on project phase</li>
+                <li>Deposits are non-refundable after work begins</li>
+            </ul>
+        </section>
+
+        <section id="property-access" class="terms-section">
+            <h2>🏠 6. Property Access and Responsibilities</h2>
+            
+            <h3>Access Requirements</h3>
+            <p>Customer must provide:</p>
+            <ul>
+                <li>Clear, safe access to work areas</li>
+                <li>Working electrical outlets if needed</li>
+                <li>Water access for irrigation and cleanup</li>
+                <li>Removal of obstacles and debris from work areas</li>
+                <li>Restraint of pets during service visits</li>
+            </ul>
+
+            <h3>Property Conditions</h3>
+            <ul>
+                <li>Notify us of underground utilities, sprinkler systems, or hidden hazards</li>
+                <li>Mark or identify valuable plants, decorations, or sensitive areas</li>
+                <li>Ensure gates and access points are unlocked on service days</li>
+                <li>Inform us of any property damage before we begin work</li>
+            </ul>
+
+            <h3>Security and Privacy</h3>
+            <ul>
+                <li>Our staff carry identification and company uniforms</li>
+                <li>We respect your privacy and property boundaries</li>
+                <li>Photos may be taken for quality control and marketing (with permission)</li>
+                <li>We are not responsible for security system activation</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Safety First:</strong> If we encounter unsafe conditions or hazardous materials, work will be stopped immediately. Additional fees may apply for hazardous material removal or specialized safety equipment.
+            </div>
+        </section>
+
+        <section id="liability" class="terms-section">
+            <h2>🛡️ 7. Liability and Insurance</h2>
+            
+            <h3>Our Insurance Coverage</h3>
+            <p>GrassyVibesAtHome maintains comprehensive insurance including:</p>
+            <ul>
+                <li>General liability insurance ($2 million coverage)</li>
+                <li>Workers' compensation for all employees</li>
+                <li>Commercial vehicle insurance</li>
+                <li>Professional liability coverage</li>
+                <li>Bonding for key personnel</li>
+            </ul>
+
+            <h3>Limitation of Liability</h3>
+            <p>Our liability is limited to:</p>
+            <ul>
+                <li>Direct damages caused by our negligence</li>
+                <li>Maximum liability not to exceed the cost of services provided</li>
+                <li>Repair or replacement of damaged property at our discretion</li>
+                <li>No liability for consequential or indirect damages</li>
+            </ul>
+
+            <h3>Customer Responsibilities</h3>
+            <ul>
+                <li>Report damage claims within 48 hours of service</li>
+                <li>Allow reasonable opportunity for us to inspect and repair</li>
+                <li>Maintain adequate homeowner's/property insurance</li>
+                <li>Notify us immediately of any injuries on your property</li>
+            </ul>
+
+            <h3>Exclusions</h3>
+            <p>We are not liable for:</p>
+            <ul>
+                <li>Pre-existing property damage or conditions</li>
+                <li>Damage from acts of nature or severe weather</li>
+                <li>Plant mortality due to drought, disease, or pests</li>
+                <li>Underground utility damage if not properly marked</li>
+                <li>Theft or vandalism of materials or equipment</li>
+            </ul>
+        </section>
+
+        <section id="warranties" class="terms-section">
+            <h2>⭐ 8. Warranties and Guarantees</h2>
+            
+            <h3>Service Quality Guarantee</h3>
+            <p>We guarantee that all services will be performed in a professional manner according to industry standards. If you are not satisfied with our work, we will return to correct any deficiencies at no additional charge within 7 days of the original service.</p>
+
+            <h3>Plant and Material Warranties</h3>
+            <ul>
+                <li><strong>Plants:</strong> 30-day warranty against defects (proper care required)</li>
+                <li><strong>Sod:</strong> 14-day warranty with proper watering</li>
+                <li><strong>Materials:</strong> Manufacturer warranties apply</li>
+                <li><strong>Hardscaping:</strong> 1-year warranty against defective workmanship</li>
+            </ul>
+
+            <h3>Warranty Conditions</h3>
+            <p>Warranties are void if:</p>
+            <ul>
+                <li>Customer fails to follow care instructions</li>
+                <li>Damage occurs from neglect, abuse, or severe weather</li>
+                <li>Unauthorized modifications or repairs are made</li>
+                <li>Payment is not made according to agreed terms</li>
+            </ul>
+
+            <h3>Warranty Claims</h3>
+            <p>To make a warranty claim:</p>
+            <ul>
+                <li>Contact us in writing within the warranty period</li>
+                <li>Provide photos and description of the issue</li>
+                <li>Allow us to inspect the problem</li>
+                <li>Permit us to make necessary corrections</li>
+            </ul>
+        </section>
+
+        <section id="customer-responsibilities" class="terms-section">
+            <h2>👤 9. Customer Responsibilities</h2>
+            
+            <h3>Communication</h3>
+            <ul>
+                <li>Provide accurate contact information</li>
+                <li>Communicate service preferences and concerns clearly</li>
+                <li>Notify us of schedule changes as soon as possible</li>
+                <li>Report problems or dissatisfaction promptly</li>
+            </ul>
+
+            <h3>Property Maintenance</h3>
+            <ul>
+                <li>Follow watering schedules for new plantings</li>
+                <li>Maintain clear access to work areas</li>
+                <li>Prevent damage to newly completed work</li>
+                <li>Monitor plants and irrigation systems between visits</li>
+            </ul>
+
+            <h3>Safety Compliance</h3>
+            <ul>
+                <li>Inform us of any hazardous conditions</li>
+                <li>Keep pets and children away from work areas</li>
+                <li>Ensure compliance with HOA and local regulations</li>
+                <li>Obtain necessary permits for major installations</li>
+            </ul>
+
+            <h3>Payment Obligations</h3>
+            <ul>
+                <li>Pay invoices according to agreed terms</li>
+                <li>Notify us of billing disputes within 30 days</li>
+                <li>Maintain current payment information</li>
+                <li>Cover costs for returned payments or failed transactions</li>
+            </ul>
+        </section>
+
+        <section id="weather" class="terms-section">
+            <h2>🌦️ 10. Weather and Force Majeure</h2>
+            
+            <h3>Weather-Related Delays</h3>
+            <p>Texas weather can be unpredictable. Services may be delayed or rescheduled due to:</p>
+            <ul>
+                <li>Rain, storms, or severe weather warnings</li>
+                <li>Extreme heat advisories (above 105°F)</li>
+                <li>Ice, snow, or freezing conditions</li>
+                <li>High winds that pose safety risks</li>
+                <li>Flooding or muddy conditions</li>
+            </ul>
+
+            <h3>Force Majeure Events</h3>
+            <p>We are not responsible for delays or inability to perform due to:</p>
+            <ul>
+                <li>Natural disasters (hurricanes, tornadoes, fires)</li>
+                <li>Government restrictions or regulations</li>
+                <li>Labor strikes or material shortages</li>
+                <li>Public health emergencies</li>
+                <li>Acts of war or terrorism</li>
+            </ul>
+
+            <h3>Seasonal Considerations</h3>
+            <ul>
+                <li>Some services are seasonal and may not be available year-round</li>
+                <li>Planting schedules follow optimal growing seasons</li>
+                <li>Irrigation systems may require winterization</li>
+                <li>Service frequency may vary by season</li>
+            </ul>
+        </section>
+
+        <section id="disputes" class="terms-section">
+            <h2>⚖️ 11. Dispute Resolution</h2>
+            
+            <h3>Initial Resolution</h3>
+            <p>We are committed to resolving disputes quickly and fairly:</p>
+            <ul>
+                <li>Contact us immediately with any concerns</li>
+                <li>We will investigate and respond within 48 hours</li>
+                <li>Most issues can be resolved through direct communication</li>
+                <li>We may offer service credits or re-performance as appropriate</li>
+            </ul>
+
+            <h3>Formal Dispute Process</h3>
+            <p>If initial resolution attempts fail:</p>
+            <ul>
+                <li>Submit written complaint within 30 days of service</li>
+                <li>Include photos, documentation, and desired resolution</li>
+                <li>We will provide written response within 10 business days</li>
+                <li>Management review may be requested for complex issues</li>
+            </ul>
+
+            <h3>Mediation and Arbitration</h3>
+            <p>For disputes that cannot be resolved directly:</p>
+            <ul>
+                <li>Mediation through a neutral third party may be pursued</li>
+                <li>Binding arbitration may be required for claims over $5,000</li>
+                <li>Small claims court is available for disputes under $10,000</li>
+                <li>Texas state law governs all dispute resolution</li>
+            </ul>
+        </section>
+
+        <section id="termination" class="terms-section">
+            <h2>🔚 12. Termination of Services</h2>
+            
+            <h3>Customer Termination</h3>
+            <p>You may terminate services at any time by:</p>
+            <ul>
+                <li>Providing 30 days written notice for recurring services</li>
+                <li>Paying all outstanding balances</li>
+                <li>Allowing completion of work in progress</li>
+                <li>Arranging for return of any company property</li>
+            </ul>
+
+            <h3>Company Termination</h3>
+            <p>We may terminate services for:</p>
+            <ul>
+                <li>Non-payment of invoices</li>
+                <li>Violation of these Terms</li>
+                <li>Unsafe or unlawful property conditions</li>
+                <li>Abusive treatment of staff</li>
+                <li>Repeated cancellations or access issues</li>
+            </ul>
+
+            <h3>Effects of Termination</h3>
+            <ul>
+                <li>All outstanding balances become immediately due</li>
+                <li>Recurring service schedules are canceled</li>
+                <li>Materials warranties may be voided</li>
+                <li>Equipment or materials on property must be returned</li>
+            </ul>
+        </section>
+
+        <section id="governing-law" class="terms-section">
+            <h2>📜 13. Governing Law and Legal Matters</h2>
